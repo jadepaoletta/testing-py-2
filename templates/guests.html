@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}Fun!{% endblock %}
+
+{% block content %}
+
+  <h2>Guests</h2>
+
+  <table class="table">
+    <thead>
+    <th>Name</th>
+    <th>Email</th>
+    </thead>
+    <tbody>
+    {% for guest in guests %}
+      <tr>
+        <td>{{ guest.name }}</td>
+        <td>{{ guest.email }}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+
+{% endblock %}

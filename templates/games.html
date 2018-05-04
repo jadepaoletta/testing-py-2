@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Fun!{% endblock %}
+
+{% block content %}
+
+  <h2>Games</h2>
+
+  <form class="table" action="/game-confirmation" method="POST">
+    Game Name: <input type="text" name="game_name">
+    Description: <input type="text" name="description">
+    <input type="submit" id="update-games">
+  </form>
+
+  <table class="table">
+    <thead>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Guest</th>
+    </thead>
+    <tbody>
+    {% for game in games %}
+      <tr>
+        <td>{{ game.name }}</td>
+        <td>{{ game.description }}</td>
+        <td>{% if game.guest_id %}{{ game.guest.name }}{% endif %}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+
+{% endblock %}
